@@ -1,9 +1,8 @@
-//const $ = window.$
-
+const $ = window.$;
 const input = 'input[type=checkbox]';
-let checkedCheckboxes = {};
+const checkedCheckboxes = {};
 // Function to update the object dict based on checkbox state
-function updateCheckedCheckboxes(checkbox) {
+function updateCheckedCheckboxes (checkbox) {
   const checkboxId = $(checkbox).attr('data-id');
   const checkboxName = $(checkbox).attr('data-name');
 
@@ -19,11 +18,10 @@ function updateCheckedCheckboxes(checkbox) {
 }
 
 $(document).ready(function () {
-    $(input).on('change', function() {
-        updateCheckedCheckboxes(this);
+  $(input).on('change', function () {
+    updateCheckedCheckboxes(this);
 
-        checkboxValues = Object.values(checkedCheckboxes).join(', ');
-        console.log(checkboxValues);
-        $('.amenities h4').text(checkboxValues);
-    });
+    const checkboxValues = Object.values(checkedCheckboxes).join(', ');
+    $('.amenities h4').text(checkboxValues);
+  });
 });
